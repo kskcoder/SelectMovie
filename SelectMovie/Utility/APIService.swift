@@ -5,6 +5,8 @@
 //  Created by Tejas Kashid on 20/02/26.
 //
 import Alamofire
+import Foundation
+import UIKit
 
 class APIService {
     static let shared = APIService()
@@ -19,5 +21,11 @@ class APIService {
             .response
 
         return try response.result.get().results
+    }
+    
+    func loadImage(from path: String) async throws -> UIImage? {
+        let url = URL(string:"https://image.tmdb.org/t/p/w500\(path)")!
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return UIImage(data: data)
     }
 }

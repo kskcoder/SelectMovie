@@ -16,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vhj-4G-qxV">
-                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vhj-4G-qxV">
+                                <rect key="frame" x="10" y="172" width="373" height="680"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vhj-4G-qxV" secondAttribute="trailing" id="6NF-pP-Ne3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vhj-4G-qxV" secondAttribute="bottom" id="L0b-gx-nfH"/>
-                            <constraint firstItem="Vhj-4G-qxV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LUG-Ea-vwv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vhj-4G-qxV" secondAttribute="trailing" constant="10" id="6NF-pP-Ne3"/>
+                            <constraint firstAttribute="bottom" secondItem="Vhj-4G-qxV" secondAttribute="bottom" id="L0b-gx-nfH"/>
+                            <constraint firstItem="Vhj-4G-qxV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="LUG-Ea-vwv"/>
                             <constraint firstItem="Vhj-4G-qxV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fE5-30-0Z9"/>
                         </constraints>
                     </view>
@@ -43,7 +43,7 @@
         <scene sceneID="gAM-6T-J41">
             <objects>
                 <viewController storyboardIdentifier="MovieDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IXy-dk-H7l" customClass="MovieDetailViewController" customModule="SelectMovie" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Owx-ZD-JXF" customClass="MovieDea">
+                    <view key="view" contentMode="scaleToFill" id="Owx-ZD-JXF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
