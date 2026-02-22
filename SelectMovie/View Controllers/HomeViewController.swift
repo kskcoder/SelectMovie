@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 @MainActor
 class HomeViewController: UIViewController {
@@ -46,17 +47,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureCell(textContent: movies[indexPath.section].title)
         cell.startShimmer()
         let posterPath = movies[indexPath.section].posterPath
-        Task {
-            do {
-                let image = try await APIService.shared.loadImage(from: posterPath)
-                await MainActor.run {
-                    guard tableView.indexPath(for: cell) == indexPath else { return }
-                    cell.movieImage.image = image
-                }
-            } catch {
-                print("Error image: ", error)
-            }
-        }
+        let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
+        cell.movieImage.sd_setImage(with: url, placeholderImage: UIImage(named: "posterPlaceholder"))
         cell.stopShimmer()
         return cell
     }
@@ -66,7 +58,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let vc = storyBoard.instantiateViewController (
             withIdentifier: "MovieDetailViewController"
         ) as? MovieDetailViewController else {return}
-        vc.configureMovieName(movieName: movies[indexPath.section].title)
+        vc.configureMovieName(movie: movies[indexPath.section])
         navigationController?.pushViewController(vc, animated: true)
         
     }

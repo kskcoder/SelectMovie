@@ -23,6 +23,7 @@ class APIService {
         return try response.result.get().results
     }
     
+    //Inbuilt URLSession without library api call to return image using path
     func loadImage(from path: String) async throws -> UIImage? {
         let url = URL(string:"https://image.tmdb.org/t/p/w500\(path)")!
         let (data, _) = try await URLSession.shared.data(from: url)
