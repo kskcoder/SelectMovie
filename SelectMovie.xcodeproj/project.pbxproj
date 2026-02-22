@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F4EC5D62F47AA9600493A93 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7F4EC5D52F47AA9600493A93 /* Alamofire */; };
 		7F7B976E2F4AF95500F74E46 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7F7B976D2F4AF95500F74E46 /* SDWebImage */; };
+		7F7B977D2F4B68A400F74E46 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7F7B977C2F4B68A400F74E46 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F7B977D2F4B68A400F74E46 /* RealmSwift in Frameworks */,
 				7F7B976E2F4AF95500F74E46 /* SDWebImage in Frameworks */,
 				7F4EC5D62F47AA9600493A93 /* Alamofire in Frameworks */,
 			);
@@ -134,6 +136,7 @@
 			packageProductDependencies = (
 				7F4EC5D52F47AA9600493A93 /* Alamofire */,
 				7F7B976D2F4AF95500F74E46 /* SDWebImage */,
+				7F7B977C2F4B68A400F74E46 /* RealmSwift */,
 			);
 			productName = SelectMovie;
 			productReference = 7FEF9EE82F45C6E700562349 /* SelectMovie.app */;
@@ -220,6 +223,7 @@
 			packageReferences = (
 				7F4EC5D42F47AA9600493A93 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7F7B976C2F4AF95500F74E46 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				7F7B97792F4B68A400F74E46 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7FEF9EE92F45C6E700562349 /* Products */;
@@ -626,6 +630,14 @@
 				minimumVersion = 5.21.6;
 			};
 		};
+		7F7B97792F4B68A400F74E46 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -638,6 +650,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F7B976C2F4AF95500F74E46 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		7F7B977C2F4B68A400F74E46 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F7B97792F4B68A400F74E46 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

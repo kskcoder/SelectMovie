@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import RealmSwift
 
 @MainActor
 class HomeViewController: UIViewController {
@@ -18,6 +19,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .cyan
         
+        loadCachedMovies()
         fetchMovies()
         
         tableView.backgroundColor = .cyan
@@ -26,18 +28,57 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "MovieTblVwCell", bundle: nil), forCellReuseIdentifier: "MovieTblVwCell")
     }
     
+    @MainActor
     private func fetchMovies() {
         Task {
             do {
                 let responseMovies = try await APIService.shared.fetchMovies()
                 self.movies = responseMovies
+                await saveToRealm(movies)
                 self.tableView.reloadData()
             } catch {
-                print("Error", error)
+                showErrorAlert()
             }
         }
     }
-
+    
+    private func saveToRealm(_ movies: [Movie]) async {
+        await Task.detached {
+            let realm = try! Realm()
+            try! realm.write {
+                let objects = movies.map { MovieObject(from: $0) }
+                realm.add(objects, update: .modified)
+            }
+        }.value
+    }
+    
+    private func loadCachedMovies() {
+        let realm = try! Realm()
+        let results = realm.objects(MovieObject.self)
+        
+        movies = results.map {
+            Movie (
+                id: $0.id,
+                title: $0.title,
+                overview: $0.overview,
+                posterPath: $0.posterPath,
+            )
+        }
+    }
+    
+    @MainActor
+    func showErrorAlert() {
+        
+        let alert = UIAlertController(
+            title: "Network Error",
+            message: "You're offline. Showing cached data.",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        present(alert, animated: true)
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
