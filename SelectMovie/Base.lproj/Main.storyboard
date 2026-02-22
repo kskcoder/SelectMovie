@@ -59,8 +59,8 @@
                                                     <constraint firstAttribute="height" constant="500" id="6jo-Wh-eAT"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-wq-02j">
-                                                <rect key="frame" x="16" y="520" width="361" height="20"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-wq-02j">
+                                                <rect key="frame" x="16" y="520" width="361" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlV-ks-w16">
                                                         <rect key="frame" x="180.66666666666666" y="0.0" width="0.0" height="0.0"/>
@@ -74,6 +74,17 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXJ-UN-xSQ">
+                                                        <rect key="frame" x="168.66666666666666" y="40" width="24" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="Eex-9U-QEx"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="showTrailer:" destination="IXy-dk-H7l" eventType="touchUpInside" id="BEE-zt-NPs"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -117,6 +128,7 @@
                         <outlet property="movieTitle" destination="vlV-ks-w16" id="6EJ-eR-wO1"/>
                         <outlet property="posterHeightConstraint" destination="6jo-Wh-eAT" id="fJc-4f-q4Z"/>
                         <outlet property="scrollView" destination="4m5-qk-H56" id="W6s-Dy-eZQ"/>
+                        <outlet property="trailerButton" destination="iXJ-UN-xSQ" id="JwL-yS-YeB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rb7-a7-dUx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
